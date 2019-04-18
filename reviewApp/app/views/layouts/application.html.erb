@@ -16,10 +16,17 @@
         <a class="p-2 text-dark" href="#"> <%= link_to "About Us", '#' %> </a>
         <a class="p-2 text-dark" href="#"> <%= link_to "Contact Us", '#' %> </a>   
         <a class="p-2 text-dark" href="#"> <%= link_to 'Products', products_path %> </a>   
-        <a class="p-2 text-dark" href="#"> <%= link_to 'Create Account', new_user_path %> </a>   
-        <% if current_user %> <a class="p-2 text-dark" href="#"><%=link_to 'Log-out', session_path('active'), method: :delete%></a>
-                              <a class="p-2 text-dark" href="#"><%= current_user.userid %></a>
+        <% if current_user %> 
+                              <a class="p-2 text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.userid %></a>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                               <a class="dropdown-item" href="#"> <%= link_to 'My Profile', profile_path(current_user.id) %></a>
+                               <a class="dropdown-item" href="#"> <%= link_to 'Edit Profile', edit_profile_path(current_user.id) %></a>
+                             <a class="dropdown-item" href="#"><%=link_to 'Log-out', session_path('active'), method: :delete%></a>
+                             </div>
+                                
         <% else%>             <a class="p-2 text-dark" href="#"><%= link_to 'Log-In', new_session_path, class: "active_nav_link" %></a>
+                <a class="p-2 text-dark" href="#"> <%= link_to 'Create Account', new_user_path %> </a>   
+
         <% end %>
 
       </nav>

@@ -1,13 +1,9 @@
 <div class="container">
-	<h1>Add New Product</h1>
+	<h1>Create Profile</h1>
 		<%= form_for :profile, url: profiles_path do |f| %>
 		<div class="form-group">
 			<%= f.label :fullName %>
 			<%= f.text_field :fullName, class:'form-control' %>
-		</div>
-		<div class="form-group">
-			<%= f.label :email %>
-			<%= f.email_field :email, class:'form-control' %>
 		</div>
 		<div class="form-group">
 			<%= f.label :dateOfBirth %>
