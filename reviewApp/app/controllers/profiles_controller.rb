@@ -40,6 +40,6 @@ before_action :login_required
 
 	private 
 	def profile_params 
-		params.require(:profile).permit(:fullName, :dateOfBirth, :address, :cityORtown, :postcode, :country, :photoOfUser, :user_id)
+		params.require(:profile).permit(:fullName, :dateOfBirth, :address, :cityORtown, :postcode, :country, :user_id, :image)
 	end
 end

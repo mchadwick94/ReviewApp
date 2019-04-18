@@ -1,13 +1,11 @@
 <div class="container">
-	<h3>Profile Details</h3>
+	<h3><%= @profile.fullName %>'s profile</h3>
+	<p><%= image_tag @profile.image.url,  size:'200x150' %></p>	
 	<p>Full Name: 					<%= @profile.fullName %></p>
 	<p>Date of Birth: 			<%= @profile.dateOfBirth %></p>
 	<p>Address: 			<%= @profile.address %></p>
 	<p>City/Town: 	<%= @profile.cityORtown %></p>
 	<p>Postcode: 	<%= @profile.postcode %></p>
 	<p>Country: 	<%= @profile.country %></p>
-	<p>Profile Image: 	<%= @profile.photoOfUser %></p>
-
-
-	
+	<p><%= link_to 'Edit Profile', edit_profile_path(current_user.id) %></p>
 </div>
