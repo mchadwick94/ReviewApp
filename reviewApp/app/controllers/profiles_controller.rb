@@ -22,9 +22,16 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		@profile = Profile.find(params[:id])
+		if @profile.update(profile_params)
+			redirect_to @profile
+		else
+			render 'edit'
+		end
 	end
 
 	def edit
+		@profile = Profile.find(params[:id])
 	end
 
 	def destroy
@@ -32,6 +39,6 @@ class ProfilesController < ApplicationController
 
 	private 
 	def profile_params 
-		params.require(:profile).permit(:fullName, :dateOfBirth, :email, :address, :cityORtown, :country, :photoOfUser)
+		params.require(:profile).permit(:fullName, :dateOfBirth, :email, :address, :cityORtown, :postcode, :country, :photoOfUser)
 	end
 end

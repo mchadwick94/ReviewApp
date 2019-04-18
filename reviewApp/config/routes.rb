@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/about'
   get 'static_pages/contact'
-  resources :products
+  resources :products do
+  collection do
+  	get :search
+  end
+end
   resources :reviews
   resources :profiles
 

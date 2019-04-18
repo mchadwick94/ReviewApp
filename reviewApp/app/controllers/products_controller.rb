@@ -30,6 +30,15 @@ class ProductsController < ApplicationController
 	def destroy
 	end
 
+	def search
+	@products = if params[:term]
+		Product.where('pName LIKE ?', "%#{params[:term]}")
+	else
+		Product.all
+		end
+		end
+
+
 	private 
 	def product_params 
 		params.require(:product).permit(:pName, :brand, :averageCost, :category, :releaseDate, :description, :productImage)

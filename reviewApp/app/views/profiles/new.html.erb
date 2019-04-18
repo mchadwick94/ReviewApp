@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Add New Product</h1>
-		<%= form_for :review, url: profiles_path do |f| %>
+		<%= form_for :profile, url: profiles_path do |f| %>
 		<div class="form-group">
 			<%= f.label :fullName %>
 			<%= f.text_field :fullName, class:'form-control' %>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="form-group">
 			<%= f.label :dateOfBirth %>
-			<%= f.date_field :releaseDate, class:'form-control' %>
+			<%= f.date_field :dateOfBirth, class:'form-control' %>
 		</div>
 		<div class="form-group">
 			<%= f.label :address %>
