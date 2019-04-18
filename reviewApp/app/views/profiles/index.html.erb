@@ -1,0 +1,33 @@
+<div class="container">
+	<h2>Profiles Available - DELETE THIS FOR FINAL VERSION</h2>
+	<table border="1" class="table">
+		<tr>
+			<th>id</th>
+						<th>Userid</th>
+			<th>Full Name</th>
+			<th>D.O.B</th>
+			<th>Address</th>
+			<th>City/Town</th>
+			<th>Postcode</th>
+			<th>country</th>
+			<th>Photo</th>
+			<th>Image</th>
+			<th>Edit</th>
+			<!--<th>Leave a Review</th>-->
+		</tr>
+		<% @profiles.each do |profile| %>
+		<tr>
+			<td> <%= profile.id %> </td>
+			<td> <%= profile.user_id %> </td>
+			<td> <%= profile.fullName %> </td>
+			<td> <%= profile.dateOfBirth %> </td>
+			<td> <%= profile.address %> </td>
+			<td> <%= profile.cityORtown %> </td>
+			<td> <%= profile.postcode %> </td>
+			<td> <%= profile.country %> </td>
+			<td> <%= profile.photoOfUser %> </td>
+			<td> <%= link_to 'Edit', edit_profile_path(profile) %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
