@@ -43,7 +43,7 @@
 
 				<div class="col-md-7 col-md-offset-1" align="center">
 					<h1 class="review_title"><%= @product.pName %> Reviews</h1>
-					<%= link_to "View All Reviews", product_reviews_path(@product) %>
+					<%= link_to "View All #{@reviews.length} Reviews", product_reviews_path(@product) %>
 
 
 					<% if @reviews.blank? %>
@@ -51,7 +51,7 @@
 					<%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
 					<% else %>
 
-					<% @reviews.each do |review| %>
+					<% @reviews[0,6].each do |review| %>
 					<div class="reviews">
 						<div class="star-rating" data-score= <%= review.rating %> ></div> <!--From Raty, uses stars with the data attached to the review.rating-->
 						<p><%= review.reviewText %></p>
