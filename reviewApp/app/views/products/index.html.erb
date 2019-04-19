@@ -1,29 +1,56 @@
+<% if !current_user %>
+	<div class="jumbotron">
+		<h1>Coconut Online Stores</h1>
+		<p>You must be signed in to write a review of a product on our site.</p>
+		<p><%= link_to "Sign-in", new_session_path, class: "btn btn-primary btn-lg" %></p>
+	</div>
+	<% end %>
+	
 <div class="container">
-	<h2>Products Available</h2>
-	<table border="1" class="table">
-		<tr>
-			<th>Product Name</th>
-			<th>Brand</th>
-			<th>Average Cost</th>
-			<th>Category</th>
-			<th>Date of Release</th>
-			<th>Description</th>
-			<th>Photo of Product</th>
-			<th>Product Page</th>
-			<!--<th>Leave a Review</th>-->
+	<%= form_tag search_products_path, method: :get do %>
+	<tr><%= text_field_tag :term, nil, placeholder: 'Search', width: '80%' %>
+	<%= submit_tag "Search", class:'btn btn-primary' %>
+</tr>
+<% end %>
+</br>
+<div class="row">
+	<% @products.each do |product| %>
+		<div class=".col-sm-6 col-md-3"</div>
+			<div class="thumbnail">
+				<%= link_to (image_tag product.image.url, size: "240x180", class: 'image'), product %>
+			</div>
+			<div class="card card-default">
+<div class="table-responsive">
+						<table class="table">
+							<tbody>
+								</br><tr style="line-height: 16px">
+									<td><strong>Product Name:</strong></td>
+									<td><%= product.pName %></td>
+								</tr>
+								<tr style="line-height: 16px">
+									<td><strong>Brand:</strong></td>
+									<td><%= product.brand %></td>
+								</tr>
+								<tr style="line-height: 16px">
+									<td><strong>Average Cost:</strong></td>
+									<td><%= product.averageCost %></td>
+								</tr>
+								<tr style="line-height: 16px">
+									<td><strong>Category:</strong></td>
+									<td><%= product.category %></td>
+								</tr>
+								<tr style="line-height: 16px">
+									<td><strong>Release Date:</strong></td>
+									<td><%= product.releaseDate %></td>
+								</tr>
+							</tbody>
 
-		</tr>
-		<% @products.each do |product| %>
-		<tr>
-			<td> <%= product.pName %> </td>
-			<td> <%= product.brand %> </td>
-			<td> <%= product.averageCost %> </td>
-			<td> <%= product.category %> </td>
-			<td> <%= product.releaseDate %> </td>
-			<td> <%= product.description %> </td>
-			<td> <%= product.productImage %> </td>
-			<td> <%= link_to 'Product Page', product_path(product) %></td>
-		</tr>
-		<% end %>
-	</table>
+						</table>
+					</div>
+		</div>
+		</div>
+	<% end %>
 </div>
+
+
+

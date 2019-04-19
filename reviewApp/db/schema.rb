@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_183419) do
+ActiveRecord::Schema.define(version: 2019_04_18_235950) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "pName"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 2019_04_18_183419) do
     t.string "productImage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -32,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_04_18_183419) do
     t.string "cityORtown"
     t.string "postcode"
     t.string "country"
-    t.string "photoOfUser"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_id"

@@ -1,12 +1,41 @@
-<div class="container">
-	<h3>Product Details</h3>
-	<p>Product Name: 			<%= @product.pName %></p>
-	<p>Brand: 					<%= @product.brand %></p>
-	<p>Average Cost: 			<%= @product.averageCost %></p>
-	<p>Category: 				<%= @product.category %></p>
-	<p>Date it was released: 	<%= @product.releaseDate %></p>
-	<p>Description: 			<%= @product.description %></p>
-	<p>Image of Product: 		<%= @product.productImage %></p>
+<div class="card card-default">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-md-4">
+					<%= image_tag @product.image.url,  size:'360x240' %>
+					<div class="table-responsive">
+						<table class="table">
+							<tbody>
+								</br><tr>
+									<td><strong>Product Name:</strong></td>
+									<td><%= @product.pName %></td>
+								</tr>
+								<tr>
+									<td><strong>Brand:</strong></td>
+									<td><%= @product.brand %></td>
+								</tr>
+								<tr>
+									<td><strong>Average Cost:</strong></td>
+									<td><%= @product.averageCost %></td>
+								</tr>
+								<tr>
+									<td><strong>Category:</strong></td>
+									<td><%= @product.category %></td>
+								</tr>
+								<tr>
+									<td><strong>Release Date:</strong></td>
+									<td><%= @product.releaseDate %></td>
+								</tr>
+								<tr>
+									<td><strong>Description:</strong></td>
+									<td><%= @product.description %></td>
+								</tr>
 
-	
+							</tbody>
+
+						</table>
+					</div>
+			</div>
+		</div>
+	</div>
 </div>
