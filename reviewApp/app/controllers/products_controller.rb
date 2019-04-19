@@ -7,11 +7,8 @@ class ProductsController < ApplicationController
 	def show
 		@product = Product.find(params[:id])
 		@reviews = Review.where(product_id: @product.id).order("Created_at DESC")
-		if @review.blank?
-			@avg_review = 0
-		else
-			@avg_review = @reviews.all.average(:rating).round(2)
-		end
+		@avg_review = @reviews.average(:rating).round(2)
+		
 	end
 
 	def index
