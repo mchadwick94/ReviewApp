@@ -2,34 +2,34 @@
 
 <h1>Reviews</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Product</th>
-      <th>Rating</th>
-      <th>Reviewtext</th>
-      <th>Reviewdate</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.author %></td>
-        <td><%= review.product_id %></td>
-        <td><%= review.rating %></td>
-        <td><%= review.reviewText %></td>
-        <td><%= review.reviewDate %></td>
-        <td><%= link_to 'View Full Review', review_path(review) %></td>
-        <td><%= link_to 'Edit', '#' %></td>
-        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'New Review', new_product_review_path %>
+<% if @reviews.blank? %>
+          <h3>No Reviews addded yet, would you like to add the first?</h3>
+          <%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
+          <% else %>
+<div class="card">
+  <div class="card card-body">
+          <% @reviews[0,6].each do |review| %>
+          <div class="reviews">
+            <p><%= review.author %> | <%= review.reviewDate %> | <div class="star-rating" data-score= <%= review.rating %> ></div></p> <!--From Raty, uses stars with the data attached to the review.rating-->
+            <p><%= review.reviewText %></p>
+            <td><%= link_to 'View Full Review', review_path(review) %></td>
+          </div>
+          <% end %>
+          <% end %>
+        </div></div>
 
 <br>
 
-<%= link_to 'New Review', new_product_review_path %>
+
+          <!--script from raty-->
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
