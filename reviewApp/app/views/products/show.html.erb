@@ -43,6 +43,7 @@
 
 				<div class="col-md-7 col-md-offset-1" align="center">
 					<h1 class="review_title"><%= @product.pName %> Reviews</h1>
+					<%= link_to "View All Reviews", product_reviews_path(@product) %>
 
 
 					<% if @reviews.blank? %>
@@ -54,6 +55,7 @@
 					<div class="reviews">
 						<div class="star-rating" data-score= <%= review.rating %> ></div> <!--From Raty, uses stars with the data attached to the review.rating-->
 						<p><%= review.reviewText %></p>
+						
 					</div>
 					<% end %>
 					<% end %>

@@ -16,7 +16,7 @@ before_action :login_required
 	def create
 		@profile = current_user.build_profile(profile_params)
 		if @profile.save
-			redirect_to @profile
+			redirect_to root_path
 		else
 			render 'new'
 		end
@@ -24,8 +24,8 @@ before_action :login_required
 
 	def update
 		@profile = Profile.where(:user_id => params[:id]).first
-		if @profile.update(profile_params)
-			redirect_to @profile
+		if @profile.save(profile_params)
+			redirect_to root_path
 		else
 			render 'edit'
 		end

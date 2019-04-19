@@ -7,9 +7,13 @@
 </p>
 
 <p>
+  <strong>Image:</strong>
+<%= image_tag @review.image_file_name,  size:'360x240' %></p>
+
+
+<p>
   <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
+<div class="star-rating" data-score= <%= @review.rating %> ></div> </p>
 
 <p>
   <strong>Reviewtext:</strong>
@@ -28,5 +32,15 @@
 
 </div>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Edit', '#' %> |
+<%= link_to 'Back', :back %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

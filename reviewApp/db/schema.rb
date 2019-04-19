@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(version: 2019_04_19_015441) do
     t.datetime "image_updated_at"
   end
 
+  create_table "rating_ratings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.decimal "average", precision: 25, scale: 16, default: "0.0"
+    t.decimal "estimate", precision: 25, scale: 16, default: "0.0"
+    t.integer "sum", default: 0
+    t.integer "total", default: 0
+    t.string "resource_type", null: false
+    t.integer "resource_id", null: false
+    t.string "scopeable_type"
+    t.integer "scopeable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_type", "resource_id"], name: "index_rating_ratings_on_resource_type_and_resource_id", length: { resource_type: 191 }
+    t.index ["scopeable_type", "scopeable_id"], name: "index_rating_ratings_on_scopeable_type_and_scopeable_id", length: { scopeable_type: 191 }
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "author"
     t.integer "rating"
@@ -53,6 +68,10 @@ ActiveRecord::Schema.define(version: 2019_04_19_015441) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "product_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
