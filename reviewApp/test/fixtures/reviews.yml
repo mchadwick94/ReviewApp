@@ -2,14 +2,12 @@
 
 one:
   author: MyString
-  productRating: 1
-  reviewContent: MyText
-  dateOfReview: 2019-04-17
-  productID: 1
+  rating: 1
+  reviewText: MyText
+  reviewDate: 2019-04-19
 
 two:
   author: MyString
-  productRating: 1
-  reviewContent: MyText
-  dateOfReview: 2019-04-17
-  productID: 1
+  rating: 1
+  reviewText: MyText
+  reviewDate: 2019-04-19

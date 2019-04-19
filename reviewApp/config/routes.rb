@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reviews
   get 'sessions/index'
   get 'sessions/new'
   get 'sessions/create'
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   	get :search
   end
 end
-  resources :reviews
   resources :profiles
   resources :users
   resources :sessions

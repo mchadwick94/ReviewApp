@@ -1,11 +1,32 @@
 <div class="container">
-	<h3>Review Details</h3>
-	<p>Author: 					<%= @review.author %></p>
-	<p>Product Rating: 			<%= @review.productRating %></p>
-	<p>Review: 					<%= @review.reviewContent %></p>
-	<p>Date of Review: 			<%= @review.dateOfReview %></p>
-	<p>Product Being Reviewed: 	<%= @review.productID %></p>
+	<h3>Review</h3>
 
+<p>
+  <strong>Author:</strong>
+  <%= @review.author %>
+</p>
 
-	
+<p>
+  <strong>Rating:</strong>
+  <%= @review.rating %>
+</p>
+
+<p>
+  <strong>Reviewtext:</strong>
+  <%= @review.reviewText %>
+</p>
+
+<p>
+  <strong>Reviewdate:</strong>
+  <%= @review.reviewDate %>
+</p>
+
+<p>
+  <strong>UserID:</strong>
+  <%= @review.user_id %>
+</p>
+
 </div>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

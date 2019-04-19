@@ -1,25 +1,21 @@
 <div class="container">
-	<h1>Add New Product</h1>
+	<h1>Add New Review</h1>
 		<%= form_for :review, url: reviews_path do |f| %>
 		<div class="form-group">
 			<%= f.label :author %>
 			<%= f.text_field :author, class:'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= f.label :productRating %>
-			<%= f.select(:productRating, [1,2,3,4,5], {}, {:class =>"form-control"}) %>
+			<%= f.label :rating %>
+			<%= f.number_field :rating, class:'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= f.label :reviewContent %>
-			<%= f.text_field :reviewContent, class:'form-control' %>
+			<%= f.label :reviewText %>
+			<%= f.text_field :reviewText, class:'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= f.label :dateOfReview %>
-			<%= f.date_field :dateOfReview, :value => Time.now.strftime('%Y-%m-%d'), :disabled => true %>
-		</div>
-		<div class="form-group">
-			<%= f.label :productID %>
-			<%= f.number_field :productID, class:'form-control' %>
+			<%= f.label :reviewDate %>
+			<%= f.date_field :reviewDate, class:'form-control' %>
 		</div>
 
 
@@ -33,3 +29,4 @@
 
 		<% end %>
 	</div>
+
