@@ -34,8 +34,27 @@
 							</tbody>
 
 						</table>
+						<%= link_to "Add a review", new_product_review_path(@product) %>
 					</div>
+			</div>
+
+				<div class="col-md-7 col-md-offset-1" align="center">
+					<h1 class="review_title"><%= @product.pName %> Reviews</h1>
+
+					<% if @reviews.blank? %>
+					<h3>No Reviews addded yet, would you like to add the first?</h3>
+					<%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
+					<% else %>
+
+					<% @reviews.each do |review| %>
+					<div class="reviews">
+						<p><%= review.rating %></p>
+						<p><%= review.reviewText %></p>
+					</div>
+					<% end %>
+					<% end %>
 			</div>
 		</div>
 	</div>
+
 </div>

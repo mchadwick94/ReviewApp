@@ -1,6 +1,33 @@
-<h1>Editing Review</h1>
+<div class="container">
+	<h1>editReview</h1>
+		<%= form_for [@movie,@review], url: product_reviews_path do |f| %>
+		<div class="form-group">
+			<%= f.label :author %>
+			<%= f.text_field :author, class:'form-control' %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :rating %>
+			<%= f.number_field :rating, class:'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :reviewText %>
+			<%= f.text_field :reviewText, class:'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :reviewDate %>
+			<%= f.date_field :reviewDate, class:'form-control' %>
+		</div>
 
-<%= render 'form', review: @review %>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+		<div class="form-group">
+			<%= f.submit "Submit", class: 'btn btn-primary' %>
+		</div>
+
+		<div class="form-group">
+			<%= link_to "Cancel", product_path(@product) %>
+		</div>
+
+		<% end %>
+	</div>
+
