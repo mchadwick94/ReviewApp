@@ -1,10 +1,11 @@
 <div class="container">
 	<h1>Add New Review</h1>
-		<%= form_for :review, url: reviews_path do |f| %>
+		<%= form_for [@movie,@review], url: product_reviews_path do |f| %>
 		<div class="form-group">
 			<%= f.label :author %>
 			<%= f.text_field :author, class:'form-control' %>
 		</div>
+		
 		<div class="form-group">
 			<%= f.label :rating %>
 			<%= f.number_field :rating, class:'form-control' %>
@@ -24,7 +25,7 @@
 		</div>
 
 		<div class="form-group">
-			<%= link_to "Cancel", reviews_path %>
+			<%= link_to "Cancel", products_path %>
 		</div>
 
 		<% end %>

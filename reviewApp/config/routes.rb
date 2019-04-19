@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :reviews
   get 'sessions/index'
   get 'sessions/new'
   get 'sessions/create'
@@ -10,10 +9,12 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/contact'
   resources :products do
-  collection do
-  	get :search
-  end
-end
+      resources :reviews
+      
+      collection do
+  	   get :search
+    end
+    end
   resources :profiles
   resources :users
   resources :sessions

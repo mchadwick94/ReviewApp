@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :login_required
+  before_action :set_product
 
 
   def index
@@ -21,8 +22,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @review.product_id = @product.id
       if @review.save
-        redirect_to @review
+        redirect_to @product
       else
         render 'new'
       end
@@ -37,12 +39,14 @@ class ReviewsController < ApplicationController
       end
     end
   
-
+def set_product
+  @product = Product.find(params[:product_id])
+end
  
   def destroy
           @review = Review.find(params[:id])
           @review.destroy
-          redirect_to reviews_path
+          redirect_to product_reviews_path
     
   end
 
