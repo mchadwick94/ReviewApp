@@ -8,17 +8,27 @@
           <h3>No Reviews addded yet, would you like to add the first?</h3>
           <%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
           <% else %>
-<div class="card">
+<div class="container"><div class="card">
   <div class="card card-body">
-          <% @reviews[0,6].each do |review| %>
-          <div class="reviews">
-            <p><%= review.author %> | <%= review.reviewDate %> | <div class="star-rating" data-score= <%= review.rating %> ></div></p> <!--From Raty, uses stars with the data attached to the review.rating-->
-            <p><%= review.reviewText %></p>
-            <td><%= link_to 'View Full Review', review_path(review) %></td>
-          </div>
+          <% @reviews.order("reviewDate desc").each do |review| %>
+                    <div class="reviews">
+                      <div class="star-rating" data-score= <%= review.rating %> >  
+                      </div> <!--From Raty, uses stars with the data attached to the review.rating-->
+                      <div class="row">
+                        <div class="card-flush" align="center">
+                          <p><%= image_tag review.image_file_name,  size:'120x80' %></p><%= review.author %>
+                        </div>
+                      <div class="card-body offset-md-1" style="width: 50%"; >
+                        <p><%= review.reviewText %></p>
+                      </div> 
+                    </div>
+                    <% if review.user_id == current_user.id %>
+            <%= link_to 'Edit', edit_review_path(review.id) %>        
+                | <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %></div>
           <% end %>
           <% end %>
-        </div></div>
+        </div>
+      </div></div>
 
 <br>
 

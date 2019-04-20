@@ -55,7 +55,7 @@ end
   def destroy
           @review = Review.find(params[:id])
           @review.destroy
-          redirect_to product_reviews_path
+          redirect_back(fallback_location: root_path)
     
   end
 

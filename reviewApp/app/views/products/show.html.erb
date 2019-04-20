@@ -59,7 +59,7 @@
 
 						</div> <% if review.user_id == current_user.id %>
 						<%= link_to 'Edit', edit_review_path(review.id) %>				
-								<% end %>
+								| <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %>	<% end %>
 
 
 							</div>
