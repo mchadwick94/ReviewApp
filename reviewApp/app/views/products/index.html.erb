@@ -13,47 +13,37 @@
 </tr>
 <% end %>
 </br>
-<div class="row">
+<div class="row" >
 	<% @products.each do |product| %>
-		<div class=".col-sm-6 col-md-3"</div>
-			<div class="thumbnail">
-				<%= link_to (image_tag product.image.url, size: "240x180", class: 'image'), product %>
+		<div class="col-sm-6 col-md-3 mmt-5"style="margin-bottom:5px"</div>
+			<div class="card card-default" style="height: 530px; width: 270px">	
+				<div class="table-responsive" style="height: 600px; width: 260px">
+					<ul class ="list-group list-group-flush">
+						
+						<li class="list-group-item">
+							<div class="thumbnail">
+								<%= link_to (image_tag product.image.url, size: "240x180", class: 'image'), product %>
+							</div>
+						</li>
+						<li class="list-group-item" style="height: 80px"><strong>Product Name:</strong>
+				<%= product.pName %></li>
+						<li class="list-group-item"><strong>Brand:</strong>
+				<%= product.brand %></li>
+						<li class="list-group-item"><strong>Average Cost:</strong>
+				<%= product.averageCost %></li>
+						<li class="list-group-item"><strong>Category:</strong>
+				<%= product.category %></li>
+						<li class="list-group-item"><strong>Release Date:</strong>
+				<%= product.releaseDate %></li>
+						<li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="card card-default">
-<div class="table-responsive">
-						<table class="table">
-							<tbody>
-								</br><tr style="line-height: 16px">
-									<td><strong>Product Name:</strong></td>
-									<td><%= product.pName %></td>
-								</tr>
-								<tr style="line-height: 16px">
-									<td><strong>Brand:</strong></td>
-									<td><%= product.brand %></td>
-								</tr>
-								<tr style="line-height: 16px">
-									<td><strong>Average Cost:</strong></td>
-									<td><%= product.averageCost %></td>
-								</tr>
-								<tr style="line-height: 16px">
-									<td><strong>Category:</strong></td>
-									<td><%= product.category %></td>
-								</tr>
-								<tr style="line-height: 16px">
-									<td><strong>Release Date:</strong></td>
-									<td><%= product.releaseDate %></td>
-								</tr>
-								<tr style="line-height: 16px">
-									<td><%= link_to 'Add Review', new_product_review_path(product) %> </a>  </td>
-								</tr>
-							</tbody>
+		</div>
 
-						</table>
-					</div>
-		</div>
-		</div>
 	<% end %>
 </div>
 
 
-
+</div>

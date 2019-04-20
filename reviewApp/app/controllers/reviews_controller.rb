@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :login_required
+  before_action :login_required, only: [:create, :edit, :destroy]
   before_action :set_product, only: [:index, :create]
   before_action :set_profile
 
