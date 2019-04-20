@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def create
@@ -35,11 +36,12 @@ class ReviewsController < ApplicationController
   
 
   def update
-      if @review.update(review_params)
-       
-      else
-        
-      end
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to @review
+    else
+      render 'edit'
+    end
     end
   
 def set_product
