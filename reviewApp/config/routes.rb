@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :profiles
   resources :users, only: [:new, :create, :edit, :update]
   resources :sessions
+  resources :password_resets
 
 end
