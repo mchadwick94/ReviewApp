@@ -4,8 +4,9 @@ class ReviewsController < ApplicationController
   before_action :set_profile
 
 
+
   def index
-    @reviews = Review.where(:product_id => @product)
+    @reviews = Review.where(:product_id => @product).paginate(:page => params[:page], :per_page => 4)
   end
 
   def show

@@ -8,8 +8,15 @@
           <h3>No Reviews addded yet, would you like to add the first?</h3>
           <%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
           <% else %>
+
+
+
 <div class="container"><div class="card">
-  <div class="card card-body">
+     <div class="center">
+       <%= will_paginate @reviews, :class => 'digg_pagination' %>
+      </div>
+      <div class="card card-body">
+
           <% @reviews.order("reviewDate desc").each do |review| %>
                     <div class="reviews">
                       <div class="star-rating" data-score= <%= review.rating %> >  
@@ -26,10 +33,12 @@
             <%= link_to 'Edit', edit_review_path(review.id) %>        
                 | <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %></div>
           <% end %>
+     <div class="center">
+       <%= will_paginate @reviews, :class => 'digg_pagination' %>
+      </div>
           <% end %>
         </div>
       </div></div>
-
 <br>
 
 

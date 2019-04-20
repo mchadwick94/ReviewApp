@@ -52,6 +52,7 @@
 					<% else %>
 
 					<% @reviews[0,3].each do |review| %>
+					
 					<div class="reviews">
 						<div class="star-rating" data-score= <%= review.rating %> > <%= review.author %> | </div> <!--From Raty, uses stars with the data attached to the review.rating-->
 						<div class="row"><div class="card-flush" align="center"><p><%= image_tag review.image_file_name,  size:'120x80' %></p></div>
