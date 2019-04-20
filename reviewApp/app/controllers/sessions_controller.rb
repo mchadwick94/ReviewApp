@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
   	#retrieves the registered user with given username
-  	user=User.find_by_userid(params[:userid])
+  	user=User.find_by_email(params[:email])
   	#authenticates using password of user and creates a session
   	if user && user.authenticate(params[:password])
   		session[:user_id]=user.id

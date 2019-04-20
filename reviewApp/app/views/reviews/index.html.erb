@@ -23,7 +23,7 @@
                       </div> <!--From Raty, uses stars with the data attached to the review.rating-->
                       <div class="row">
                         <div class="card-flush" align="center">
-                          <p><%= image_tag review.image_file_name,  size:'120x80' %></p><%= review.author %>
+                          <p><%= image_tag review.image_file_name,  size:'120x80', style: "border-radius: 100%" %></p><%= review.author %>
                         </div>
                       <div class="card-body offset-md-1" style="width: 50%"; >
                         <p><%= review.reviewText %></p>

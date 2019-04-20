@@ -27,7 +27,11 @@ body {
 	border-bottom: 1px solid #EAEAEA;
 	.star-rating{
 	padding-bottom: 8px;
-	}
+  .card-flush {
+  .image {
+  border-radius: 100%
+  }
+	}}
 }
 
 .digg_pagination {
@@ -80,4 +84,12 @@ body {
 
     .center {
     text-align: center;
+    }
+
+    .card  {
+    box-shadow: 2px 2px gray;
+    }
+
+    html{
+    padding: 20px;
     }
