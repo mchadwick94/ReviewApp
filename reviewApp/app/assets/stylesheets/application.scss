@@ -34,6 +34,10 @@ body {
 	}}
 }
 
+.btm-primary {
+  background-color: #ff3a30;
+  test-color: white;
+}
 .digg_pagination {
   background: white;
   cursor: default;
@@ -88,8 +92,22 @@ body {
 
     .card  {
     box-shadow: 2px 2px gray;
+    .default {
+    height: 530px; 
+    width: 300px;
+    }
     }
 
     html{
     padding: 20px;
+    }
+
+
+
+    .dropdown-content {
+    text-indent: 5px;
+    }
+
+    .table-reviews {
+    height: 620px; width: 100%; text-align: center;
     }
