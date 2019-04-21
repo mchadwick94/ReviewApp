@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
 	<div class="card">
     <div class="card-body">
       <h3>Review</h3>
@@ -23,6 +24,41 @@
 
 </div>
 </div></div>
+=======
+	<h3>Review</h3>
+
+<p>
+  <strong>Author:</strong>
+  <%= @review.author %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+<%= image_tag @review.image_file_name,  size:'360x240' %></p>
+
+
+<p>
+  <strong>Rating:</strong>
+<div class="star-rating" data-score= <%= @review.rating %> ></div> </p>
+
+<p>
+  <strong>Reviewtext:</strong>
+  <%= @review.reviewText %>
+</p>
+
+<p>
+  <strong>Reviewdate:</strong>
+  <%= @review.reviewDate %>
+</p>
+
+<p>
+  <strong>UserID:</strong>
+  <%= @review.user_id %>
+</p>
+
+</div>
+
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 
 
 <script>

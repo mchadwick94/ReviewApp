@@ -1,7 +1,11 @@
 <div class="card card-default">
 	<div class="card-body">
+<<<<<<< HEAD
 		<% if current_user.present? %>
 						<%= link_to "Add a review", new_product_review_path(@product) %><% end %>
+=======
+		<%= link_to "Add a review", new_product_review_path(@product) %>
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 		<div class="row">
 			<div class="col-md-4 col-md-offset-2 mt-5">
 					<%= image_tag @product.image.url,  size:'360x240' %>
@@ -44,6 +48,7 @@
 
 				<div class="col-md-6 offset-md-1 mt-5" align="center" >
 					<h1 class="review_title"><%= @product.pName %> Reviews</h1>
+<<<<<<< HEAD
 					
 
 					<% if @reviews.blank? %>
@@ -53,17 +58,32 @@
 					<%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %> <% else %> <%= link_to "Log In To Leave A Review", new_session_path, class:"btn btn-primary btn-lg" %> <% end %>
 					<% else %>
 <%= link_to "View All #{@reviews.length} Reviews", product_reviews_path(@product) %>
+=======
+					<%= link_to "View All #{@reviews.length} Reviews", product_reviews_path(@product) %>
+
+
+					<% if @reviews.blank? %>
+					<h3>No Reviews addded yet, would you like to add the first?</h3>
+					<%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
+					<% else %>
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 
 					<% @reviews[0,3].each do |review| %>
 					
 					<div class="reviews">
 						<div class="star-rating" data-score= <%= review.rating %> > <%= review.author %> | </div> <!--From Raty, uses stars with the data attached to the review.rating-->
 						<div class="row"><div class="card-flush" align="center"><p><%= image_tag review.image_file_name,  size:'120x80', style: "border-radius: 100%" %></p></div>
+<<<<<<< HEAD
 						<div class="ellipsis"><div class="card-body col-md-10 " style="width: 50%; font-size: 80%;" ><p><%= review.reviewText %></p></div>
 
 						</div> <% if current_user.present? %>
 						
 						<% if review.user_id == current_user.id %>
+=======
+						<div class="card-body offset-md-1" style="width: 50%"; ><p><%= review.reviewText %></p>
+
+						</div> <% if review.user_id == current_user.id %>
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 						<%= link_to 'Edit', edit_review_path(review.id) %>				
 								| <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %>	<% end %>
 
@@ -72,7 +92,11 @@
 						
 					</div>
 					<% end %>
+<<<<<<< HEAD
 					<% end %><% end %>
+=======
+					<% end %>
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 			</div>
 		</div>
 	</div>
