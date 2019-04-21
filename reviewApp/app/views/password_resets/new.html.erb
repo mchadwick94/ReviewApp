@@ -1,0 +1,8 @@
+<div class="container">
+	<h2>Reset Password</h2>
+	<%= form_for :password_reset, url: password_resets_path do %>
+
+	<%= text_field_tag :email, nil, placeholder: 'Enter Your Email', class: 'form-control' %>
+	<%= submit_tag "Send Email", class: 'btn btn-primary' %>
+	<% end %>
+</div>

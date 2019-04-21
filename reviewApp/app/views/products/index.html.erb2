@@ -1,0 +1,36 @@
+<div class="container">
+<div class="container">
+	<%= form_tag search_products_path, method: :get do %>
+	<tr><%= text_field_tag :term, nil, placeholder: 'Search', class:'form-control' %>
+	<%= submit_tag "Search", class:'btn btn-default' %>
+</tr>
+<% end %>
+<h2>Products Available</h2>
+
+	<table border="1" class="table">
+		<tr>
+			<th>Product Image</th>
+			<th>Product Name</th>
+			<th>Brand</th>
+			<th>Average Cost</th>
+			<th>Category</th>
+			<th>Date of Release</th>
+			<th>Description</th>
+			<th>Product Page</th>
+			<!--<th>Leave a Review</th>-->
+
+		</tr>
+		<% @products.each do |product| %>
+		<tr>
+			<td> <%= image_tag product.image.url,  size:"200x150" %> </td>
+			<td> <%= product.pName %> </td>
+			<td> <%= product.brand %> </td>
+			<td> <%= product.averageCost %> </td>
+			<td> <%= product.category %> </td>
+			<td> <%= product.releaseDate %> </td>
+			<td> <%= product.description %> </td>
+			<td> <%= link_to 'Product Page', product_path(product) %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
