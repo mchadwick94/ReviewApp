@@ -2,11 +2,14 @@
 
 <h1>Reviews</h1>
 
-
-<%= link_to 'New Review', new_product_review_path %>
+          <% if current_user.present? %>
+          <%= link_to 'New Review', new_product_review_path %> <% end %>
 <% if @reviews.blank? %>
+          <% if current_user.present? %>
+
           <h3>No Reviews addded yet, would you like to add the first?</h3>
-          <%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %>
+          <%= link_to "Add First Review", new_product_review_path(@product), class:"btn btn-primary btn-lg" %> <% else %> <h3>You must be logged in to post reviews.</h3>
+          <%= link_to "Log-In", new_session_path, class:"btn btn-primary btn-lg" %> <% end %>
           <% else %>
 
 
@@ -28,10 +31,11 @@
                       <div class="card-body offset-md-1" style="width: 50%"; >
                         <p><%= review.reviewText %></p>
                       </div> 
-                    </div>
-                    <% if review.user_id == current_user.id %>
+                    </div>          <% if current_user.present? %>
+
+                    <%= link_to 'Show Review', review_path(review.id) %><% if review.user_id == current_user.id %>
             <%= link_to 'Edit', edit_review_path(review.id) %>        
-                | <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %></div>
+                | <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %><% end %></div>
           <% end %>
      <div class="center">
        <%= will_paginate @reviews, :class => 'digg_pagination' %>

@@ -50,8 +50,9 @@ def set_product
 end
 
 def set_profile
-    @profile = Profile.where(:user_id => current_user.id).first
-end
+            if current_user.present? 
+@profile = Profile.where(:user_id => current_user.id).first
+end end
  
   def destroy
           @review = Review.find(params[:id])

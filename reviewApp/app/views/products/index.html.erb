@@ -39,7 +39,8 @@
 				<%= product.category %></li>
 						<li class="list-group-item"><strong>Release Date:</strong><br/>
 				<%= product.releaseDate %></li>
-						<li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %>
+											<% if current_user.present? %>
+<li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %><% end %>
 						</li>
 					</ul>
 				</div>
