@@ -7,13 +7,10 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   root 'static_pages#home'
   get 'static_pages/about'
-<<<<<<< HEAD
     root 'static_pages#about'
   get 'static_pages/contact'
     root 'static_pages#contact'
-=======
   get 'static_pages/contact'
->>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
   resources :products, :shallow => true do
       resources :reviews
       

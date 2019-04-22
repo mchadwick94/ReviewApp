@@ -5,31 +5,8 @@
 			<%= f.label "Product Rating:" %>
 			<%= f.select :rating, [[1],[2],[3],[4],[5]], {class: "form-control"} %>
 		</div>
-<<<<<<< HEAD
 		<div class="form-group" multi-line="true">
-=======
-		
-<<<<<<< HEAD
-			<div class="form-group">
-			<%= f.label "Product Rating:" %>
-			<%= f.select :rating, [[1],[2],[3],[4],[5]] %>
-		</div>
-		<div class="form-group" multi-line="true">
-			<%= f.label :reviewText %>
-			<%= f.text_field :reviewText, class:'form-control', style:"cols='50'" %>
-		</div>
-		<div class="form-group">
-			<%= f.label :reviewDate %>
-			<%= f.date_field :reviewDate, :value => Time.now.strftime("%Y-%m-%d"), class:'form-control', :readonly => true %>
-		</div>
 
-=======
-		<div class="form-group">
-			<%= f.label :rating %>
-			<%= f.number_field :rating, class:'form-control' %>
-		</div>
-		<div class="form-group">
->>>>>>> 0c3bd463a3d5461935c1846c919c5ff37d51de2a
 			<%= f.label :reviewText %>
 			<%= f.text_field :reviewText, class:'form-control' %>
 		</div>
@@ -39,7 +16,6 @@
 		</div>
 
 
->>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 		<div class="form-group">
 			<%= f.submit "Submit", class: 'btn btn-primary' %>
 		</div>

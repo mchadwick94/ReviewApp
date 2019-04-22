@@ -1,11 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :login_required, only: [:create, :edit, :destroy]
   before_action :set_product, only: [:index, :create]
-<<<<<<< HEAD
   before_action :set_profile, except: [:index]
-=======
-  before_action :set_profile
->>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
+
 
 
 
@@ -62,7 +59,6 @@ end end
           @review = Review.find(params[:id])
           @review.destroy
           redirect_back(fallback_location: root_path)
-    
   end
 
   private
