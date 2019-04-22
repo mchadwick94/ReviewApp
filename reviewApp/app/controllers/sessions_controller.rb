@@ -16,7 +16,11 @@ class SessionsController < ApplicationController
 
   		#If no matching username and password, redirect to login page and display error message
   	else
+<<<<<<< HEAD
+  		render 'new', notice: "Invalid Username and/or password"
+=======
   		render 'new', alert: "Invalid Username and/or password"
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
   	end
   end
 

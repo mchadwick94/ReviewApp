@@ -104,10 +104,44 @@ body {
 
 
 
+<<<<<<< HEAD
+    .dropdown-item {
+    indent: 5px
+=======
     .dropdown-content {
     text-indent: 5px;
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
     }
 
     .table-reviews {
     height: 620px; width: 100%; text-align: center;
+<<<<<<< HEAD
+    }
+
+    .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: visible;
+    display: inline-block;
+    }
+
+
+
+       .notice {
+    background-color: #f4f05f;
+    border-color: #888646;
+    border-radius: 25px;
+    color: #888646;
+    text-align: left;
+    padding: 8px;
+    }
+           .alert {
+    background-color: #ffa07a;
+    border-color: #b50000;
+    border-radius: 25px;
+    color: #b50000;
+    text-align: left;
+    padding: 8px;
+=======
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
     }

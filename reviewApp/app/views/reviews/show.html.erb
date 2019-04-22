@@ -1,4 +1,30 @@
 <div class="container">
+<<<<<<< HEAD
+	<div class="card">
+    <div class="card-body">
+      <h3>Review</h3>
+          <div class="reviews">
+            <div class="star-rating" data-score= <%= @review.rating %> > <%= @review.author %> | 
+</div> <!--From Raty, uses stars with the data attached to the review.rating-->
+            <div class="row"><div class="card-flush" align="center"><p><%= image_tag @review.image_file_name,  size:'120x80', style: "border-radius: 100%" %><br/><%= @review.reviewDate %></p></div>
+            
+            <div class="card-body offset-md-1" style="width: 50%"; ><p><%= @review.reviewText %></p>
+
+            </div> <% if current_user.present? %>
+
+            <% if @review.user_id == current_user.id %>
+            <%= link_to 'Edit', edit_review_path(@review.id) %>        
+                | <%= link_to 'Delete', review_path(@review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %>
+
+
+              </div>
+            
+          </div>
+          <% end %>
+
+</div>
+</div></div>
+=======
 	<h3>Review</h3>
 <div class="card card-body">
 <div class="reviews">
@@ -15,6 +41,7 @@
               </div></div>
 </div>
 
+>>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
 
 
 <script>
