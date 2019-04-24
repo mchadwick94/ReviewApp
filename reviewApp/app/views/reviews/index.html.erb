@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reviews</h1>
+<h1>Reviews for <%= @product.pName %></h1>
 
-          <% if current_user.present? %>
-          <%= link_to 'New Review', new_product_review_path %> <% end %>
+          
 
 <% if @reviews.blank? %>
           <% if current_user.present? %>
@@ -13,7 +12,8 @@
           <%= link_to "Log-In", new_session_path, class:"btn btn-primary btn-lg" %> <% end %>
           <% else %>
 
-<div class="container"><div class="card">
+<div class="container"><div class="card"><% if current_user.present? %>
+          <%= link_to 'New Review', new_product_review_path %> <% end %>
      <div class="center">
        <%= will_paginate @reviews, :class => 'digg_pagination' %>
       </div>
@@ -33,7 +33,7 @@
                     </div>         
 
                     <%= link_to 'Show Review', review_path(review.id) %>
-                    <% if current_user.present? %>
+                    <% if current_user.present? %> |
                     <% if review.user_id == current_user.id %>
             <%= link_to 'Edit', edit_review_path(review.id) %>        
                 | <%= link_to 'Delete', review_path(review.id), method: :Delete, data: {confirm: "Are you sure you want to delete your review?"} %> <% end %></div>

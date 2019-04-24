@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>editReview</h1>
+	<h1>Edit Your Review</h1>
 		<%= form_for [@product,@review] do |f| %>
 		<div class="form-group">
 			<%= f.label "Product Rating:" %>
@@ -7,7 +7,7 @@
 		</div>
 		<div class="form-group" multi-line="true">
 
-			<%= f.label :reviewText %>
+			<%= f.label "Your Review:" %>
 			<%= f.text_area :reviewText, class:'form-control' %>
 		</div>
 		<div class="form-group">
