@@ -39,16 +39,9 @@
 				<%= product.category %></li>
 						<li class="list-group-item"><strong>Release Date:</strong><br/>
 				<%= product.releaseDate %></li>
-<<<<<<< HEAD
 											<% if current_user.present? %>
 <li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %><% end %>
-=======
-<<<<<<< HEAD
-						<% if @user.present? %><li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %> <% end %>
-=======
-						<li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %>
->>>>>>> 1df1b77f552631e86b777a9ff485570439e551fc
->>>>>>> 0c3bd463a3d5461935c1846c919c5ff37d51de2a
+
 						</li>
 					</ul>
 				</div>

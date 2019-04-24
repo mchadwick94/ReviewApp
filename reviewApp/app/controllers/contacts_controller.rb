@@ -5,13 +5,19 @@ class ContactsController < ApplicationController
 	end
 
 	def create
-		@contact = Contact.new(params[:contact])
-		if @contact.save
-			ContactsMailer.general_mesage(@contact).deliver
-			ContactsMailer.thanks_message(@contact).deliver
-		else
-			render 'new'
-		end
+			
+			@contact = Contact.last
+			cname = params[:Cname]
+			email = params[:email]
+			subject = params[:subject]
+			message = params[:message]
+			ContactsMailer.general_message(cname, email, subject, message).deliver_now
+	redirect_to root_path
 	end
 
+end
+
+private def contact_params
+params.require(:contact).permit(:cname, :email, :subject, :message)
+	
 end

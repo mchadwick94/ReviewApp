@@ -16,6 +16,7 @@
         <a class="p-2 text-dark" href="#"> <%= link_to "Home", root_path %> </a>
         <a class="p-2 text-dark" href="#"> <%= link_to "About Us", static_pages_about_path %> </a>
         <a class="p-2 text-dark" href="#"> <%= link_to "Contact Us", static_pages_contact_path %> </a>   
+        <a class="p-2 text-dark" href="#"> <%= link_to "Contact Us Form", new_contact_path %> </a>   
         <a class="p-2 text-dark" href="#"> <%= link_to 'Products', products_path %> </a>   
         <% if current_user %> 
                               <a class="p-2 text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.userid %></a>
