@@ -21,7 +21,7 @@ before_action :login_required
 
 	def update
 		@profile = Profile.where(:user_id => params[:id]).first
-		if @profile.save(profile_params)
+		if @profile.update(profile_params)
 			redirect_to root_path
 		else
 			render 'edit'
