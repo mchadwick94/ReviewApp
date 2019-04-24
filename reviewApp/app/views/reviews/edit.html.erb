@@ -8,10 +8,10 @@
 		<div class="form-group" multi-line="true">
 
 			<%= f.label :reviewText %>
-			<%= f.text_field :reviewText, class:'form-control' %>
+			<%= f.text_area :reviewText, class:'form-control' %>
 		</div>
 		<div class="form-group">
-			<%= f.label :reviewDate %>
+	
 			<%= f.date_field :reviewDate, :value => Time.now.strftime("%Y-%m-%d"), class:'form-control', :readonly => true, hidden: true %>
 		</div>
 

@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
 	def search
 	@products = if params[:term]
-		Product.where('pName LIKE ?', "%#{params[:term]}")
+		Product.where('pName LIKE ?', "%#{params[:term]}%")
 	else
 		Product.all
 		end

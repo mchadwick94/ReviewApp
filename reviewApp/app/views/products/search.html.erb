@@ -1,37 +1,55 @@
+<% if !current_user %>
+	<div class="jumbotron">
+		<h1>Coconut Online Stores</h1>
+		<p>You must be signed in to write a review of a product on our site.</p>
+		<p><%= link_to "Sign-in", new_session_path, class: "btn btn-primary btn-lg" %></p>
+	</div>
+	<% end %>
+	
 <div class="container">
-	<%= form_tag search_products_path, method: :get do %>
-	<tr><%= text_field_tag :term, nil, placeholder: 'Search', class:'form-control' %>
-	<%= submit_tag "Search", class:'btn btn-default' %>
+	<div class="<div class="form-control-flush"><%= form_tag search_products_path, method: :get do %>
+	<tr><%= text_field_tag :term, nil, placeholder: 'Search', width: '80%' %>
+	<%= submit_tag "Search", class:'btn btn-primary' %><%= link_to "Clear Search", products_path, class:'btn btn-default' %></tr>
 </tr>
 <% end %>
-	<h2>Products Available</h2>
+</div>
+</br>
+
+<div class="row" >
+
+	<% @products.each do |product| %>
+
+		<div class="col-sm-8 col-md-4 mmt-2"style="margin-bottom:5px"</div>
+			<div class="card card-default" >	
+				<div class="table-reviews">
+					<ul class ="list-group list-group-flush">
+						
+						<li class="list-group-item">
+							<div class="thumbnail">
+								<%= link_to (image_tag product.image.url, size: "240x180", class: 'image'), product %>
+							</div>
+						</li>
+						<li class="list-group-item" style="height: 80px"><strong>Product Name:</strong><br/>
+				<%= product.pName %></li>
+						<li class="list-group-item"><strong>Brand:</strong><br/>
+				<%= product.brand %></li>
+						<li class="list-group-item"><strong>Average Cost:</strong><br/>
+				<%= product.averageCost %></li>
+						<li class="list-group-item"><strong>Category:</strong><br/>
+				<%= product.category %></li>
+						<li class="list-group-item"><strong>Release Date:</strong><br/>
+				<%= product.releaseDate %></li>
+											<% if current_user.present? %>
+<li class="list-group-item"style="height: 40px"><%= link_to 'Add Review', new_product_review_path(product) %><% end %>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	<% end %>
+</div>
 
 
-
-	<table border="1" class="table">
-		<tr>
-			<th>Product Image</th>
-			<th>Product Name</th>
-			<th>Brand</th>
-			<th>Average Cost</th>
-			<th>Category</th>
-			<th>Date of Release</th>
-			<th>Description</th>
-			<th>Product Page</th>
-			<!--<th>Leave a Review</th>-->
-
-		</tr>
-		<% @products.each do |product| %>
-		<tr>
-			<td> <%= image_tag product.image.url,  size:"200x150" %> </td>
-			<td> <%= product.pName %> </td>
-			<td> <%= product.brand %> </td>
-			<td> <%= product.averageCost %> </td>
-			<td> <%= product.category %> </td>
-			<td> <%= product.releaseDate %> </td>
-			<td> <%= product.description %> </td>
-			<td> <%= link_to 'Product Page', product_path(product) %></td>
-		</tr>
-		<% end %>
-	</table>
 </div>

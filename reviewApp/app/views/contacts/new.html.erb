@@ -1,0 +1,34 @@
+<div class="container">
+	<h2>Contact Congo Reviews</h2>
+	<%= form_for @contact do |f| %>
+	<div class="field" style="100%">
+		<% if @contact.errors.any? %>
+		<div id="error_axplanation">
+			<h2>
+				<% pluralize(@contact.errors.count, "error") %>
+			prohibited this from being saved. </h2>
+			<p>
+				<ul>
+					<% @contact.errors.full_messages.each do |msg| %>
+					<li>
+						<%= msg %>
+					</li>
+				</ul>
+				<% end %>
+			</p>
+
+			<% if alert %>
+			<%= alert %>
+			<% end %>
+			</div> 
+			<% end %>
+
+			<%= text_field_tag :cname, nil, placeholder: 'Enter your name', class: 'form-control' %>
+			<%= email_field_tag :email, nil, placeholder: 'Enter your Email', class: 'form-control' %>
+			<%= text_field_tag :subject, nil, placeholder: 'Enter the subject of your enquiry', class: 'form-control' %>
+			<%= text_area_tag :message, nil, placeholder: 'Enter the message of your enquiry', class: 'form-control' %>
+
+			<%= f.submit 'Submit Enquiry' %>
+			<% end %>
+		</div>
+	</div>

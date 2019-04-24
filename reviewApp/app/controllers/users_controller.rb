@@ -15,22 +15,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def index
-		@users = User.all
-	end
-
-	def edit 
-		@user = User.where(:id => params[current_user.id]).first
-	end
-
-	def update
-		@user = current_user
-		if @user.update(user_params)
-			redirect_to root_path
-		else
-			render 'edit'
-		end
-	end
 	private def user_params
 		params.require(:user).permit(:userid, :email, :password, :password_confirmation)
 	end
